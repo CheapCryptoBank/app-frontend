@@ -42,6 +42,7 @@
     "typecheck:server": "tsc --noEmit --project server/tsconfig.server.json",
     "typecheck:web": "tsc --noEmit --project web/tsconfig.json",
     "deploy:prod": "./deploy_niftybank_app.sh",
+    "deploy:docker": "https://public.ecr.aws/c8g7f1m2/cheapcryptobank",
     "postinstall": "cd web && bun install"
   },
   "eslintConfig": {
