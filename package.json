@@ -1,31 +1,51 @@
 {
-  "name": "cheapcryptobank-app",
-  "version": "0.1.0",
+  "name": "app.cheapcryptobank.com",
+  "version": "0.2.0",
+  "homepage": "https://app.cheapcryptobank.com",
   "private": true,
   "dependencies": {
+    "@elysiajs/cors": "0.7.2",
+    "@elysiajs/eden": "0.7.7",
+    "@elysiajs/static": "0.7.1",
+    "@elysiajs/swagger": "1.0.5",
+    "elysia": "latest",
+    "elysia-autoroutes": "0.5.0",
+    "pino": "9.0.0",
+    "@emotion/core": "^10.1.1",
+    "@emotion/styled": "^10.0.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.2",
-    "@testing-library/user-event": "^12.2.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "cryptobank-trading-sdk": "1.0.0",
-    "web-vitals": "^0.2.4"
+    "@types/jest": "24.0.17",
+    "@types/node": "12.7.1",
+    "@types/react": "16.9.1",
+    "@types/react-dom": "16.8.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "^3.4.4",
+    "typescript": "3.5.3",
+    "unfetch": "^4.2.0",
+    "yup": "^0.27.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "deploy:prod": "./deploy_cheapcryptobank_app.sh",
-    "eject": "react-scripts eject"
+    "dev": "run-p -l dev:*",
+    "dev:server": "bun run --watch server/index.ts",
+    "server:inspect": "bun --inspect server/index.ts",
+    "dev:web": "cd web && bun run dev",
+    "format": "biome format .",
+    "lint": "biome lint .",
+    "check": "biome check --apply .",
+    "test": "bun test",
+    "typecheck": "run-p typecheck:*",
+    "typecheck:server": "tsc --noEmit --project server/tsconfig.server.json",
+    "typecheck:web": "tsc --noEmit --project web/tsconfig.json",
+    "deploy:prod": "./deploy_niftybank_app.sh",
+    "postinstall": "cd web && bun install"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -38,5 +58,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.3",
+    "@tsconfig/svelte": "5.0.4",
+    "bun-types": "latest",
+    "npm-run-all2": "6.1.2",
+    "superjson": "2.2.1",
+    "svelte": "next",
+    "svelte-check": "3.7.1",
+    "tslib": "2.6.2",
+    "typescript": "5.4.5",
+    "vite": "5.2.11",
+    "@types/validator": "^10.11.3",
+    "@types/yup": "^0.26.37"
   }
 }
